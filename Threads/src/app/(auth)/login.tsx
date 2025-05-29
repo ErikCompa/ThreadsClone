@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Link } from 'expo-router';
 import { useState } from 'react';
-//import { supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -22,23 +22,21 @@ export default function LoginScreen() {
     }
 
     try {
-      setIsLoading(true);
-
-      /*const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) Alert.alert(error.message);
-      */
+        setIsLoading(true);
+        const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+        if (error) Alert.alert(error.message);
     } catch (error) {
-      console.error('Login error:', error);
-      if (error instanceof Error) {
-        Alert.alert('Login error:', error.message);
-      } else {
-        Alert.alert('Login error:', 'An unknown error occurred.');
-      }
+        console.error('Login error:', error);
+        if (error instanceof Error) {
+            Alert.alert('Login error:', error.message);
+        } else {
+            Alert.alert('Login error:', 'An unknown error occurred.');
+        }
     } finally {
-      setIsLoading(false);
+        setIsLoading(false);
     }
   };
 

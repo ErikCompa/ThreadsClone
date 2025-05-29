@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Link } from 'expo-router';
 import { useState } from 'react';
-//import { supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ export default function SignUpScreen() {
     try {
       setIsLoading(true);
 
-      /*const {
+      const {
         data: { session },
         error,
       } = await supabase.auth.signUp({ email, password });
@@ -33,7 +33,7 @@ export default function SignUpScreen() {
 
       if (!session)
         Alert.alert('Please check your inbox for email verification!');
-*/    } catch (error) {
+    } catch (error) {
       console.error('Login error:', error);
       // TODO: Add proper error handling
     } finally {
