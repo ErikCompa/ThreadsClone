@@ -5,3 +5,8 @@ To run this project:
 4. npx expo start -c
 
 This project was completed following notJust.dev's 'Threads Clone' ytb tutorial.
+
+.env file should have: 
+EXPO_PUBLIC_SUPABASE_URL=yourkey
+EXPO_PUBLIC_SUPABASE_ANON_KEY=yourkey
+SUPABASE_ACCESS_TOKEN=yourkey
